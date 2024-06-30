@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Image, SafeAreaView} from 'react-native';
+import PhotoView from "./screens/PhotoView";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>First kino commit !</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PhotoView image={'../sample-photos/30.heic'}/>
   );
 }
 
