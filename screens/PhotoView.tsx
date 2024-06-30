@@ -1,29 +1,38 @@
-import {StyleSheet, Image, SafeAreaView} from "react-native";
+import {StyleSheet, Image, SafeAreaView, Dimensions, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
+import PhotoViewDate from "../components/PhotoViewDate";
+import PhotoViewDescription from "../components/PhotoViewDescription";
 
-export default function PhotoView() {
+type PhotoViewProps = {
+    image: string;
+    date: string;
+    description: string;
+};
+
+export default function PhotoView(props: PhotoViewProps) {
     return (
-        <SafeAreaView style={styles.viewContainer}>
+        <View style={styles.viewContainer}>
             <Image
                 style={styles.image}
                 resizeMode={"contain"}
-                source={this.props.image}></Image>
+                source={{uri: props.image}}/>
+            <PhotoViewDate date={props.date}/>
+            <PhotoViewDescription description={props.description}/>
             <StatusBar style="auto" />
-            <Date/>
-            <Description/>
-        </SafeAreaView>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     viewContainer: {
-        flex: 1,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        // backgroundColor: 'green'
     },
     image: {
         width: "100%",
-        height: "100%"
+        aspectRatio: 1.78,
+        height: "auto",
+        // height: Dimensions.get('window').width,
+        backgroundColor: 'black'
     }
 });
