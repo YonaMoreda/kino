@@ -1,24 +1,31 @@
-import {StyleSheet, Image, SafeAreaView, Dimensions, View} from "react-native";
+import {StyleSheet, Image, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
-import PhotoViewDate from "../components/PhotoViewDate";
-import PhotoViewDescription from "../components/PhotoViewDescription";
+
+import PhotoViewDetails from "../components/PhotoViewDetails";
+import {useEffect, useState} from "react";
+import React from "react";
 
 type PhotoViewProps = {
     image: string;
     date: string;
     description: string;
+    reactions: string;
 };
 
 export default function PhotoView(props: PhotoViewProps) {
+    const [isShowingDetails, setIsShowingDetails] = useState(true);
+    useEffect(() => {
+    }, [isShowingDetails]);
+
     return (
-        <View style={styles.viewContainer}>
+        <View style={styles.viewContainer} onTouchStart={() => setIsShowingDetails(!isShowingDetails)}>
             <Image
                 style={styles.image}
                 resizeMode={"contain"}
-                source={{uri: props.image}}/>
-            <PhotoViewDate date={props.date}/>
-            <PhotoViewDescription description={props.description}/>
-            <StatusBar style="auto" />
+                source={{uri: props.image}}
+            />
+            <PhotoViewDetails date={props.date} description={props.description} reactions={props.reactions} hidden={isShowingDetails}/>
+            <StatusBar style="auto"/>
         </View>
     );
 }
@@ -26,13 +33,11 @@ export default function PhotoView(props: PhotoViewProps) {
 const styles = StyleSheet.create({
     viewContainer: {
         flexDirection: 'column',
-        // backgroundColor: 'green'
     },
     image: {
         width: "100%",
-        aspectRatio: 1.78,
+        aspectRatio: 0.4604167,
         height: "auto",
-        // height: Dimensions.get('window').width,
         backgroundColor: 'black'
     }
 });

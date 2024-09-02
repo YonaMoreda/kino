@@ -1,4 +1,5 @@
 import {SafeAreaView, StyleSheet, Text} from "react-native";
+import React from "react";
 
 type PhotoViewDateProps = {
     date: string;
@@ -14,11 +15,10 @@ export default function PhotoViewDate(props: PhotoViewDateProps) {
 
 const styles = StyleSheet.create({
     date: {
-        color: 'gray',
         textAlign: "left",
-        paddingTop: '4%',
-        paddingLeft: '4%',
+        paddingBottom: '1%',
         fontStyle: 'italic',
-        // backgroundColor: 'yellow'
+        fontSize: 12,
+        color: 'white'
     }
 });

@@ -1,4 +1,5 @@
 import {StyleSheet, Text} from "react-native";
+import React from "react";
 
 type PhotoViewDescriptionProps = {
     description: string;
@@ -12,9 +13,8 @@ export default function PhotoViewDescription(props: PhotoViewDescriptionProps) {
 
 const styles = StyleSheet.create({
     description: {
-        padding: '4%',
-        paddingTop: '2%',
-        paddingBottom: '7%'
-        // backgroundColor: 'blue'
+        fontSize: 14,
+        color: 'white',
+        paddingTop: '1%'
     }
 });
