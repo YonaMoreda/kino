@@ -1,2 +1,2 @@
 # kino
-photo bucket
+AWS based photo bucket app (icloud replacement)
